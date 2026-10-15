@@ -7,4 +7,4 @@ Description=Instagram autopilot tick
 Type=oneshot
 Environment=IGAP_HOME=%h/.instagram-autopilot
 Environment=IGAP_CREDENTIALS=file
-ExecStart=/usr/bin/node %h/instagram-autopilot-skill/bin/igap.mjs run
+ExecStart=/usr/bin/node %h/instagram-autopilot-skill/cli/igap.mjs run

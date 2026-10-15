@@ -1,11 +1,16 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "instagram-autopilot-skill",
-  "description": "Instagram autopilot skills for Claude",
-  "owner": { "name": "dileepgaganr", "url": "https://github.com/dileepgaganr" },
+  "name": "reelpilot",
+  "owner": {
+    "name": "dileepgaganr",
+    "url": "https://github.com/dileepgaganr"
+  },
+  "metadata": {
+    "description": "Reelpilot: analyze, fix, schedule, post and learn from Instagram Reels",
+    "version": "0.2.0"
+  },
   "plugins": [
     {
-      "name": "instagram-autopilot",
+      "name": "reelpilot",
       "description": "Analyze, fix, schedule, post and learn from Instagram Reels through the official API.",
       "source": "./",
       "category": "productivity",

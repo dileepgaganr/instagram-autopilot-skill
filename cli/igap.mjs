@@ -183,7 +183,7 @@ const commands = {
 
   schedule() {
     const node = process.execPath;
-    const bin = join(ROOT, 'bin', 'igap.mjs');
+    const bin = join(ROOT, 'cli', 'igap.mjs');
     const every = Number(opt('--every') ?? 15);
     if (process.platform === 'darwin') {
       const plist = join(homedir(), 'Library/LaunchAgents/com.instagram-autopilot.run.plist');

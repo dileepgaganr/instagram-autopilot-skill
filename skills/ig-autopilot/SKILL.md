@@ -9,8 +9,8 @@ description: >-
 
 # ig-autopilot
 
-Everything runs through one CLI. In a plugin install it is `node "${CLAUDE_PLUGIN_ROOT}/bin/igap.mjs"`;
-in a clone it is `node <repo>/bin/igap.mjs` (or `npm link` once and call `igap`). Below, `igap` means
+Everything runs through one CLI. In a plugin install it is `node "${CLAUDE_PLUGIN_ROOT}/cli/igap.mjs"`;
+in a clone it is `node <repo>/cli/igap.mjs` (or `npm link` once and call `igap`). Below, `igap` means
 whichever applies. Data lives in `~/.instagram-autopilot/` (override with `IGAP_HOME`).
 
 ## First run

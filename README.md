@@ -1,4 +1,4 @@
-# Instagram autopilot skill
+# Reelpilot: an Instagram autopilot for Claude
 
 Claude skills plus a zero-dependency CLI that take a video from your disk to a published Reel, then
 learn from how it did. The CLI checks the video, fixes a copy, picks the time slot and posts it
@@ -24,14 +24,30 @@ Plugin:
 
 ```
 /plugin marketplace add dileepgaganr/instagram-autopilot-skill
-/plugin install instagram-autopilot
+/plugin install reelpilot@reelpilot
 ```
 
-Or clone it and copy `skills/*` into `~/.claude/skills/`. The CLI is `node bin/igap.mjs`. Running
+Or clone it and copy `skills/*` into `~/.claude/skills/`. The CLI is `node cli/igap.mjs`. Running
 `npm link` once puts `igap` on your PATH.
 
 Requirements: Node 20+, `ffmpeg` and `ffprobe` (`brew install ffmpeg`, `apt install ffmpeg`), and
 `gh` if you use the default GitHub-release hosting.
+
+## Where it runs
+
+Reelpilot does real work on your machine: it runs `ffmpeg`, keeps a queue and a token, and
+starts a timer. Use it in **Claude Code**, or in **Cowork when the session runs on your computer**.
+In claude.ai chat the skills still load and can explain a report or write a caption, but they can't
+analyze, post or schedule, because the chat sandbox has no access to your files, Keychain or
+scheduler.
+
+## Example prompts
+
+- "Check `~/Videos/launch.mp4` before I post it to Instagram, and fix whatever you can."
+- "Queue these three reels, write captions in my voice, and schedule them for this week."
+- "Which of my last 20 reels worked, and what should I change in the next one?"
+- "Why didn't yesterday's reel post?"
+- "Set up Instagram autopilot for my account."
 
 ## Connect an account (one time, ~15 minutes)
 
@@ -102,6 +118,24 @@ has 6 posts that are at least 48 hours old, the scheduler rebuilds the playbook 
 Correlation on a dozen posts is a hint, not proof. The report says how confident it is. The best
 way to make it useful is to change one thing at a time and tag hooks with `--hook`.
 
+## What it runs, sends and stores
+
+Nothing leaves your machine except the calls listed here, and each one happens only when you
+run a command or when the timer you installed runs `igap run`.
+
+| What | Where it goes | When |
+| --- | --- | --- |
+| Your access token, caption, media URL, and requests for your posts' insights | `graph.instagram.com` (Meta's official Instagram API) | setup, posting, insight sync, weekly token refresh |
+| The video or image file you queued (the fixed copy, if fixes were applied) | The host you configure: a release in **your** GitHub repo via the `gh` CLI, or your own upload command | right before a post |
+| A HEAD request to the uploaded file's URL | that host | right before a post, to confirm it's public |
+
+Local programs it runs: `ffprobe` and `ffmpeg` (analysis and fixes), `gh` (GitHub hosting), `security`
+(macOS Keychain), `launchctl` (only when you run `igap schedule`). On disk, everything lives in
+`~/.instagram-autopilot/`: config, queue, ledger of your posts and their insights, playbook, logs and
+fixed copies. There is no telemetry, no analytics and no server of ours. See [PRIVACY.md](PRIVACY.md).
+
+The timer posts only items you approved, unless you explicitly set `approval auto`.
+
 ## The fine print
 
 - **Official API only.** Posting uses Instagram's Content Publishing API for professional
@@ -125,6 +159,10 @@ learn · report · schedule · config · refresh`. Run `igap` with no arguments 
 a 6s frozen stretch, quiet audio). It checks that analysis finds each one and that the fixed copy
 is 1080×1920 at −14 LUFS. Then it runs add → approve → run → post → sync → learn against a mocked
 Instagram API.
+
+## Support
+
+Open an issue at https://github.com/dileepgaganr/instagram-autopilot-skill/issues.
 
 ## License
 

@@ -1,9 +1,9 @@
 {
-  "name": "instagram-autopilot-skill",
-  "version": "0.1.0",
+  "name": "reelpilot",
+  "version": "0.2.0",
   "description": "Claude skills + a zero-dependency CLI that analyze, fix, schedule, post and learn from Instagram Reels through the official API.",
   "type": "module",
-  "bin": { "igap": "bin/igap.mjs" },
+  "bin": { "igap": "cli/igap.mjs" },
   "scripts": { "test": "node --test test/igap.test.mjs" },
   "engines": { "node": ">=20" },
   "license": "MIT"
