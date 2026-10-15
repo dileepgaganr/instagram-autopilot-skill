@@ -20,7 +20,7 @@ whichever applies. Data lives in `~/.instagram-autopilot/` (override with `IGAP_
    ask them to paste it into chat. Have them run `igap setup` in their own terminal, where the input
    is hidden.
 2. Hosting: Instagram downloads media from a public URL. Default is a public GitHub repo's release
-   (`igap config set hosting.repo owner/name`, plus `hosting.gh_user` if `gh` has several logins).
+   (`igap config set hosting.repo owner/name`; uploads run as the active `gh` account, which needs write access).
    Any other uploader works through `hosting.provider command` (see README).
 3. `igap config set timezone <IANA zone>` if the machine's zone is not the audience's.
 

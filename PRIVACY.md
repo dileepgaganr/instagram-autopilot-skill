@@ -9,8 +9,7 @@ collects no data, and receives nothing from your use of it.
 
 - **Your Instagram access token and account id.** You generate the token in your own Meta developer
   app and enter it with `igap setup`. It is stored in your macOS Keychain, or in
-  `~/.instagram-autopilot/credentials.json` with owner-only permissions, or read from environment
-  variables you set. It is sent only to Meta's Instagram API (`graph.instagram.com`).
+  `~/.instagram-autopilot/credentials.json` with owner-only permissions. It is sent only to Meta's Instagram API (`graph.instagram.com`).
 - **Your media and captions.** Files you queue are analyzed locally with ffmpeg. When an item
   posts, the file is uploaded to the host you configured (a release in your own GitHub repository,
   or your own upload command) so Instagram can fetch it, and the caption is sent to Instagram.

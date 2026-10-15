@@ -1,6 +1,6 @@
 {
   "name": "reelpilot",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Claude skills + a zero-dependency CLI that analyze, fix, schedule, post and learn from Instagram Reels through the official API.",
   "type": "module",
   "bin": { "igap": "cli/igap.mjs" },

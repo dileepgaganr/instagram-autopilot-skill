@@ -55,8 +55,6 @@ const commands = {
     if (config.hosting.provider === 'github-release' && !config.hosting.repo) {
       const repo = await ask('Public GitHub repo for media files, owner/name (blank to set later): ');
       if (repo) saveConfig({ hosting: { repo } });
-      const user = repo ? await ask('gh login that can write to it (blank = active gh account): ') : '';
-      if (user) saveConfig({ hosting: { gh_user: user } });
     }
     console.log(`Config: ${PATHS.config}\nTimezone: ${loadConfig().timezone}  (change: igap config set timezone Europe/London)`);
   },

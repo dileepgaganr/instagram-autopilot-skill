@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Reelpilot: analyze, fix, schedule, post and learn from Instagram Reels",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "plugins": [
     {

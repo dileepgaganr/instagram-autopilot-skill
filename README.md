@@ -60,8 +60,8 @@ scheduler.
 3. **Media hosting.** Instagram downloads the file from a public URL, so the CLI uploads it first.
    - Default: a public GitHub repo's release. Run `gh repo create <you>/<name>-media --public`, add
      one commit (releases need it), then
-     `igap config set hosting.repo <you>/<name>-media`. If `gh` has several logins, also run
-     `igap config set hosting.gh_user <login>`.
+     `igap config set hosting.repo <you>/<name>-media`. Uploads run as your active `gh` account,
+     so it needs write access to that repo.
    - Anything else: `igap config set hosting.provider command` and
      `igap config set hosting.command "<upload {file} as {name}, print the https URL>"`. That works
      with rclone, `aws s3 cp`, scp to a web server, and so on.
@@ -71,9 +71,10 @@ scheduler.
 5. Run `igap schedule` to install a timer that runs `igap run` every 15 minutes (launchd on macOS;
    it prints cron and systemd lines elsewhere).
 
-Credentials go to the macOS Keychain (service `instagram-autopilot`), or to environment variables
-(`IGAP_ACCESS_TOKEN`, `IGAP_USER_ID`), or to `~/.instagram-autopilot/credentials.json` (mode 600)
-with `IGAP_CREDENTIALS=file`. Long-lived tokens last 60 days. The scheduler refreshes yours weekly,
+The token you paste into `igap setup` is the only credential Reelpilot uses. It is stored in the
+macOS Keychain (service `instagram-autopilot`), or in `~/.instagram-autopilot/credentials.json`
+(mode 600) on other systems or with `IGAP_CREDENTIALS=file`. Reelpilot never reads tokens from your
+environment or from other tools. Long-lived tokens last 60 days. The scheduler refreshes yours weekly,
 so it only dies if nothing runs for two months.
 
 ## Daily use
