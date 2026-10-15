@@ -8,7 +8,7 @@ import { test } from 'node:test';
 const HOME = mkdtempSync(join(tmpdir(), 'igap-test-'));
 const BIN = join(HOME, 'bin');
 process.env.IGAP_HOME = HOME;
-process.env.IGAP_CREDENTIALS = 'file';
+process.env.IGAP_STORAGE = 'file';
 execFileSync('mkdir', ['-p', BIN]);
 writeFileSync(join(BIN, 'gh'), '#!/bin/sh\necho "gh $*" >> "$IGAP_HOME/gh.log"\n');
 chmodSync(join(BIN, 'gh'), 0o755);

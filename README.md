@@ -64,7 +64,7 @@ scheduler.
      so it needs write access to that repo.
    - Anything else: `igap config set hosting.provider command` and
      `igap config set hosting.command "<upload {file} as {name}, print the https URL>"`. That works
-     with rclone, `aws s3 cp`, scp to a web server, and so on.
+     with rclone, scp to a web server, and so on.
    - Or give a queue item `media_url:` and skip uploading.
 4. Run `igap setup` in your own terminal and paste the token (the input is hidden).
    `igap status` should say *connected*.
@@ -73,7 +73,7 @@ scheduler.
 
 The token you paste into `igap setup` is the only credential Reelpilot uses. It is stored in the
 macOS Keychain (service `instagram-autopilot`), or in `~/.instagram-autopilot/credentials.json`
-(mode 600) on other systems or with `IGAP_CREDENTIALS=file`. Reelpilot never reads tokens from your
+(mode 600) on other systems or with `IGAP_STORAGE=file`. Reelpilot never reads tokens from your
 environment or from other tools. Long-lived tokens last 60 days. The scheduler refreshes yours weekly,
 so it only dies if nothing runs for two months.
 
