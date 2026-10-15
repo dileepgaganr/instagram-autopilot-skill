@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.instagram-autopilot.run</string>
+  <key>ProgramArguments</key>
+  <array><string>{{NODE}}</string><string>{{BIN}}</string><string>run</string></array>
+  <key>EnvironmentVariables</key>
+  <dict><key>IGAP_HOME</key><string>{{HOME}}</string><key>PATH</key><string>{{PATH}}</string></dict>
+  <key>StartInterval</key><integer>{{EVERY}}</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>{{HOME}}/launchd.out</string>
+  <key>StandardErrorPath</key><string>{{HOME}}/launchd.err</string>
+</dict>
+</plist>

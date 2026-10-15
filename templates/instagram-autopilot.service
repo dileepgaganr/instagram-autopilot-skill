@@ -1,0 +1,10 @@
+# ~/.config/systemd/user/instagram-autopilot.service — edit the two paths, then:
+#   systemctl --user enable --now instagram-autopilot.timer
+[Unit]
+Description=Instagram autopilot tick
+
+[Service]
+Type=oneshot
+Environment=IGAP_HOME=%h/.instagram-autopilot
+Environment=IGAP_CREDENTIALS=file
+ExecStart=/usr/bin/node %h/instagram-autopilot-skill/bin/igap.mjs run

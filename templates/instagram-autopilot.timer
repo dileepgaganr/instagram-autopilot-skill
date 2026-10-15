@@ -1,0 +1,10 @@
+# ~/.config/systemd/user/instagram-autopilot.timer
+[Unit]
+Description=Run the Instagram autopilot every 15 minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+
+[Install]
+WantedBy=timers.target
