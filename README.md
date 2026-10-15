@@ -161,6 +161,10 @@ a 6s frozen stretch, quiet audio). It checks that analysis finds each one and th
 is 1080×1920 at −14 LUFS. Then it runs add → approve → run → post → sync → learn against a mocked
 Instagram API.
 
+## Terms
+
+See [TERMS.md](TERMS.md) and [PRIVACY.md](PRIVACY.md).
+
 ## Support
 
 Open an issue at https://github.com/dileepgaganr/instagram-autopilot-skill/issues.

@@ -1,7 +1,7 @@
 {
   "name": "reelpilot",
   "description": "Analyze, fix, schedule, post and learn from Instagram Reels through the official Instagram API: video timing analysis, automatic spec/loudness/aspect fixes, a learned posting playbook, and an approval-gated scheduler.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "dileepgaganr",
     "url": "https://github.com/dileepgaganr"
@@ -17,5 +17,7 @@
     "video-analysis",
     "analytics",
     "ffmpeg"
-  ]
+  ],
+  "privacyPolicyUrl": "https://github.com/dileepgaganr/instagram-autopilot-skill/blob/main-temp/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/dileepgaganr/instagram-autopilot-skill/blob/main-temp/TERMS.md"
 }
